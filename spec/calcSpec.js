@@ -7,7 +7,10 @@ describe("Calculator", function() {
             expect(addition(10,9)).toBe(19);
         });
         it("should return error if 2 numbers not supplied", function() {
-            expect(addition("one","two")).toBe("Error!");
+            //expect(addition("one","two")).toBe("Error!");
+            spyOn(window,"alert");
+            addition("one","two");
+            expect(window.alert).toHaveBeenCalledWith("Error!");
         });
     })
 })
